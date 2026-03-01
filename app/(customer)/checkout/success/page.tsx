@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle, Package, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { Button, Spinner } from '@/components/ui';
 import { useCart } from '@/hooks/useCart';
 import { useLanguage } from '@/hooks/useLanguage';
 
-export default function CheckoutSuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const { clearCart } = useCart();
   const { t } = useLanguage();
@@ -66,7 +66,7 @@ export default function CheckoutSuccessPage() {
                 1
               </span>
               <span>
-                You'll receive an order confirmation email with your order
+                You will receive an order confirmation email with your order
                 details.
               </span>
             </li>
@@ -83,7 +83,7 @@ export default function CheckoutSuccessPage() {
                 3
               </span>
               <span>
-                Once ready, we'll ship your order and send you tracking
+                Once ready, we will ship your order and send you tracking
                 information.
               </span>
             </li>
@@ -91,5 +91,13 @@ export default function CheckoutSuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><Spinner size="lg" /></div>}>
+      <SuccessContent />
+    </Suspense>
   );
 }
