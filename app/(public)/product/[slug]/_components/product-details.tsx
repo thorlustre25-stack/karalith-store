@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Heart, ShoppingBag, Check, Truck, Shield, Sparkles, Star } from 'lucide-react';
+import { Heart, ShoppingBag, Check, Truck, Shield, Sparkles, Star, MessageCircle } from 'lucide-react';
 import { Button, Badge, Select } from '@/components/ui';
 import { toast } from '@/components/ui/toast';
 import { useCart } from '@/hooks/useCart';
@@ -10,6 +10,7 @@ import { useWishlist } from '@/hooks/useWishlist';
 import { useAuth } from '@/hooks/useAuth';
 import { useLanguage } from '@/hooks/useLanguage';
 import { cn, formatPrice, getMetalDisplayName, getRingSizes } from '@/lib/utils';
+import { ShapeSelector, MetalSelector } from '@/components/product/diamond-shapes';
 import type { ProductWithDetails, ReviewWithUser, ProductVariant } from '@/types';
 
 interface ProductDetailsProps {
@@ -27,6 +28,9 @@ export function ProductDetails({ product, reviews }: ProductDetailsProps) {
     product.variants[0] || null
   );
   const [selectedSize, setSelectedSize] = useState<string>('');
+  const [selectedCarat, setSelectedCarat] = useState<string>('');
+  const [selectedMetal, setSelectedMetal] = useState<string>('');
+  const [selectedShape, setSelectedShape] = useState<string>('');
   const [customNotes, setCustomNotes] = useState('');
   const [isAdding, setIsAdding] = useState(false);
   const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'reviews'>(
@@ -45,11 +49,37 @@ export function ProductDetails({ product, reviews }: ProductDetailsProps) {
   const adjustment = selectedVariant?.price_adjustment || 0;
   const finalPrice = basePrice + adjustment;
 
-  // Check if this is a ring (needs size selection)
+  // Diamond carat weight options
+  const DIAMOND_CARAT_OPTIONS = [
+    { value: '0.75', label: '0.75 ct' },
+    { value: '1.00', label: '1.00 ct' },
+    { value: '1.50', label: '1.50 ct' },
+    { value: '2.00', label: '2.00 ct' },
+    { value: '2.50', label: '2.50 ct' },
+    { value: '3.00', label: '3.00 ct' },
+    { value: '3.50', label: '3.50 ct' },
+    { value: '4.00', label: '4.00 ct' },
+    { value: 'contact', label: t('product.contactForLarger') },
+  ];
+
+  // Check if this is a ring (needs size & diamond weight selection)
   const needsSize =
     product.category?.slug === 'rings' || product.category?.slug === 'engagement';
+  const needsDiamondWeight = needsSize;
 
   const handleAddToCart = async () => {
+    if (needsDiamondWeight && !selectedShape) {
+      toast.warning(t('product.selectStoneShape'));
+      return;
+    }
+    if (needsDiamondWeight && !selectedCarat) {
+      toast.warning(t('product.selectDiamondWeight'));
+      return;
+    }
+    if (needsDiamondWeight && !selectedMetal) {
+      toast.warning(t('product.selectMetal'));
+      return;
+    }
     if (needsSize && !selectedSize) {
       toast.warning(t('product.selectSize'));
       return;
@@ -63,6 +93,9 @@ export function ProductDetails({ product, reviews }: ProductDetailsProps) {
       primaryImage,
       1,
       selectedSize || undefined,
+      selectedCarat || undefined,
+      selectedMetal || undefined,
+      selectedShape || undefined,
       customNotes || undefined
     );
 
@@ -177,6 +210,71 @@ export function ProductDetails({ product, reviews }: ProductDetailsProps) {
         </div>
       )}
 
+      {/* Stone Shape Selection */}
+      {needsDiamondWeight && (
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-3">
+            {t('product.stoneShape')}
+          </label>
+          <ShapeSelector
+            selectedShape={selectedShape}
+            onSelect={setSelectedShape}
+          />
+        </div>
+      )}
+
+      {/* Diamond Weight (Carats) Selection */}
+      {needsDiamondWeight && (
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-2">
+            {t('product.diamondWeight')}
+          </label>
+          {selectedCarat === 'contact' ? (
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                For diamonds over 4.00ct, please contact us for availability and pricing.
+              </p>
+              <div className="flex gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-md text-sm hover:bg-primary/90 transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Contact Us
+                </Link>
+                <button
+                  onClick={() => setSelectedCarat('')}
+                  className="px-4 py-2 border border-border rounded-md text-sm hover:border-primary transition-colors"
+                >
+                  Choose a different size
+                </button>
+              </div>
+            </div>
+          ) : (
+            <Select
+              options={DIAMOND_CARAT_OPTIONS}
+              value={selectedCarat}
+              onChange={(e) => setSelectedCarat(e.target.value)}
+              placeholder={t('product.selectDiamondWeight')}
+            />
+          )}
+        </div>
+      )}
+
+      {/* Metal Selection */}
+      {needsDiamondWeight && (
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-2">
+            {t('product.metalType')}
+          </label>
+          <MetalSelector
+            selectedMetal={selectedMetal}
+            onSelect={setSelectedMetal}
+            language={language}
+          />
+        </div>
+      )}
+
       {/* Ring Size Selection */}
       {needsSize && (
         <div className="mb-6">
@@ -220,6 +318,7 @@ export function ProductDetails({ product, reviews }: ProductDetailsProps) {
           size="lg"
           className="flex-1"
           loading={isAdding}
+          disabled={selectedCarat === 'contact'}
           leftIcon={isAdding ? <Check className="h-5 w-5" /> : <ShoppingBag className="h-5 w-5" />}
         >
           {isAdding ? t('product.addedToCart') : t('product.addToCart')}

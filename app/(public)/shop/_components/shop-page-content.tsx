@@ -63,6 +63,10 @@ export function ShopPageContent({
 
   const totalPages = Math.ceil(totalCount / perPage);
 
+  // Only show ring-related categories
+  const RING_SLUGS = ['rings', 'engagement', 'wedding-bands'];
+  const filteredCategories = categories.filter((c) => RING_SLUGS.includes(c.slug));
+
   const updateFilters = useCallback(
     (updates: Record<string, string | undefined>) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -96,12 +100,12 @@ export function ShopPageContent({
     <div className="grid lg:grid-cols-[280px_1fr] gap-8">
       {/* Desktop Filters */}
       <aside className="hidden lg:block">
-        <div className="sticky top-32 space-y-8">
+        <div className="sticky top-32 space-y-8 bg-light-pink rounded-lg p-6">
           {/* Categories */}
           <div>
-            <h3 className="font-heading text-lg mb-4">Categories</h3>
+            <h3 className="font-heading text-lg mb-4 text-primary">Categories</h3>
             <div className="space-y-2">
-              {categories.map((category) => (
+              {filteredCategories.map((category) => (
                 <a
                   key={category.id}
                   href={`/shop/${category.slug}`}
@@ -115,7 +119,7 @@ export function ShopPageContent({
 
           {/* Metal Type */}
           <div>
-            <h3 className="font-heading text-lg mb-4">Metal Type</h3>
+            <h3 className="font-heading text-lg mb-4 text-primary">Metal Type</h3>
             <div className="space-y-2">
               {metalTypes.map((metal) => (
                 <button
@@ -141,7 +145,7 @@ export function ShopPageContent({
 
           {/* Price Range */}
           <div>
-            <h3 className="font-heading text-lg mb-4">Price Range</h3>
+            <h3 className="font-heading text-lg mb-4 text-primary">Price Range</h3>
             <div className="space-y-2">
               {priceRanges.map((range, index) => {
                 const isActive =
@@ -331,6 +335,8 @@ function MobileFilters({
   onClearFilters: () => void;
   language: string;
 }) {
+  const RING_SLUGS = ['rings', 'engagement', 'wedding-bands'];
+  const filteredCategories = categories.filter((c) => RING_SLUGS.includes(c.slug));
   return (
     <>
       <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={onClose} />
@@ -347,7 +353,7 @@ function MobileFilters({
           <div>
             <h3 className="font-medium mb-3">Categories</h3>
             <div className="space-y-2">
-              {categories.map((category) => (
+              {filteredCategories.map((category) => (
                 <a
                   key={category.id}
                   href={`/shop/${category.slug}`}

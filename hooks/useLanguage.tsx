@@ -6,13 +6,13 @@ import type { Language } from '@/types';
 // English translations
 const en = {
   // Header
-  'header.freeShipping': 'Free shipping on orders over €150',
+  'header.freeShipping': 'Free shipping on all engagement rings',
   'header.myAccount': 'My Account',
   'header.signIn': 'Sign In',
   'header.wishlist': 'Wishlist',
 
   // Footer
-  'footer.tagline': 'Sustainable luxury jewelry, handcrafted with ethically sourced diamonds and precious metals.',
+  'footer.tagline': 'Handcrafted engagement rings with ethically sourced diamonds. Sustainable luxury for your forever moment.',
   'footer.shop': 'Shop',
   'footer.support': 'Support',
   'footer.company': 'Company',
@@ -20,25 +20,31 @@ const en = {
   'footer.securePayments': 'Secure payments',
 
   // WhatsApp
-  'whatsapp.defaultMessage': 'Hello! I would like to know more about KaraLITH jewelry.',
+  'whatsapp.defaultMessage': 'Hello! I would like to know more about KaraLITH engagement rings.',
 
   // Homepage
-  'home.heroTitle': 'Timeless Elegance',
-  'home.heroSubtitle': 'Sustainable luxury jewelry crafted with exceptional diamonds',
-  'home.shopNow': 'Shop Now',
+  'home.heroTitle': 'Begin Forever',
+  'home.heroSubtitle': 'Handcrafted engagement rings with ethically sourced diamonds',
+  'home.shopNow': 'Explore Rings',
   'home.ourStory': 'Our Story',
-  'home.featuredTitle': 'Featured Collection',
-  'home.featuredSubtitle': 'Discover our most beloved pieces, crafted with care and precision',
-  'home.categoriesTitle': 'Shop by Category',
-  'home.testimonialsTitle': 'What Our Clients Say',
+  'home.featuredTitle': 'Our Engagement Rings',
+  'home.featuredSubtitle': 'Each ring is handcrafted with care, ready for your perfect moment',
+  'home.categoriesTitle': 'Find Your Style',
+  'home.testimonialsTitle': 'Love Stories',
   'home.sustainabilityTitle': 'Sustainable Luxury',
-  'home.sustainabilityText': 'Every piece is crafted using ethically sourced materials and sustainable practices.',
+  'home.sustainabilityText': 'Every ring is crafted using ethically sourced diamonds and sustainable practices.',
 
   // Products
   'product.addToCart': 'Add to Cart',
   'product.addedToCart': 'Added to Cart',
   'product.selectSize': 'Select Ring Size',
   'product.diamondGrade': 'Diamond Grade',
+  'product.diamondWeight': 'Diamond Weight (Carats)',
+  'product.selectDiamondWeight': 'Select diamond weight',
+  'product.contactForLarger': 'Contact us for larger stones',
+  'product.stoneShape': 'Stone Shape',
+  'product.selectStoneShape': 'Please select a stone shape',
+  'product.selectMetal': 'Please select a metal type',
   'product.metalType': 'Metal Type',
   'product.description': 'Description',
   'product.specifications': 'Specifications',
@@ -101,13 +107,13 @@ const en = {
 // Spanish translations
 const es: typeof en = {
   // Header
-  'header.freeShipping': 'Envío gratis en pedidos de más de €150',
+  'header.freeShipping': 'Envío gratis en todos los anillos de compromiso',
   'header.myAccount': 'Mi Cuenta',
   'header.signIn': 'Iniciar Sesión',
   'header.wishlist': 'Lista de Deseos',
 
   // Footer
-  'footer.tagline': 'Joyería de lujo sostenible, artesanal con diamantes y metales preciosos de origen ético.',
+  'footer.tagline': 'Anillos de compromiso artesanales con diamantes de origen ético. Lujo sostenible para tu momento eterno.',
   'footer.shop': 'Tienda',
   'footer.support': 'Soporte',
   'footer.company': 'Empresa',
@@ -115,25 +121,31 @@ const es: typeof en = {
   'footer.securePayments': 'Pagos seguros',
 
   // WhatsApp
-  'whatsapp.defaultMessage': '¡Hola! Me gustaría saber más sobre las joyas KaraLITH.',
+  'whatsapp.defaultMessage': '¡Hola! Me gustaría saber más sobre los anillos de compromiso KaraLITH.',
 
   // Homepage
-  'home.heroTitle': 'Elegancia Atemporal',
-  'home.heroSubtitle': 'Joyería de lujo sostenible elaborada con diamantes excepcionales',
-  'home.shopNow': 'Comprar Ahora',
+  'home.heroTitle': 'Comienza Para Siempre',
+  'home.heroSubtitle': 'Anillos de compromiso artesanales con diamantes de origen ético',
+  'home.shopNow': 'Explorar Anillos',
   'home.ourStory': 'Nuestra Historia',
-  'home.featuredTitle': 'Colección Destacada',
-  'home.featuredSubtitle': 'Descubre nuestras piezas más queridas, elaboradas con cuidado y precisión',
-  'home.categoriesTitle': 'Comprar por Categoría',
-  'home.testimonialsTitle': 'Lo Que Dicen Nuestros Clientes',
+  'home.featuredTitle': 'Nuestros Anillos de Compromiso',
+  'home.featuredSubtitle': 'Cada anillo es elaborado con cuidado, listo para tu momento perfecto',
+  'home.categoriesTitle': 'Encuentra Tu Estilo',
+  'home.testimonialsTitle': 'Historias de Amor',
   'home.sustainabilityTitle': 'Lujo Sostenible',
-  'home.sustainabilityText': 'Cada pieza está elaborada con materiales de origen ético y prácticas sostenibles.',
+  'home.sustainabilityText': 'Cada anillo está elaborado con diamantes de origen ético y prácticas sostenibles.',
 
   // Products
   'product.addToCart': 'Añadir al Carrito',
   'product.addedToCart': 'Añadido al Carrito',
   'product.selectSize': 'Seleccionar Talla',
   'product.diamondGrade': 'Calidad del Diamante',
+  'product.diamondWeight': 'Peso del Diamante (Quilates)',
+  'product.selectDiamondWeight': 'Seleccionar peso del diamante',
+  'product.contactForLarger': 'Contáctenos para piedras más grandes',
+  'product.stoneShape': 'Forma de la Piedra',
+  'product.selectStoneShape': 'Por favor seleccione una forma de piedra',
+  'product.selectMetal': 'Por favor seleccione un tipo de metal',
   'product.metalType': 'Tipo de Metal',
   'product.description': 'Descripción',
   'product.specifications': 'Especificaciones',

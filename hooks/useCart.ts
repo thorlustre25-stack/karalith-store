@@ -12,6 +12,9 @@ interface CartStore {
     image: ProductImage | null,
     quantity?: number,
     ringSize?: string,
+    diamondCarat?: string,
+    selectedMetal?: string,
+    stoneShape?: string,
     customizationNotes?: string
   ) => void;
   removeItem: (productId: string, variantId: string | null) => void;
@@ -32,7 +35,7 @@ export const useCart = create<CartStore>()(
     (set, get) => ({
       items: [],
 
-      addItem: (product, variant, image, quantity = 1, ringSize, customizationNotes) => {
+      addItem: (product, variant, image, quantity = 1, ringSize, diamondCarat, selectedMetal, stoneShape, customizationNotes) => {
         set((state) => {
           const existingIndex = state.items.findIndex(
             (item) =>
@@ -55,6 +58,9 @@ export const useCart = create<CartStore>()(
                 variant_id: variant?.id || null,
                 quantity,
                 ring_size: ringSize || null,
+                diamond_carat: diamondCarat || null,
+                selected_metal: selectedMetal || null,
+                stone_shape: stoneShape || null,
                 customization_notes: customizationNotes || null,
                 product,
                 variant,

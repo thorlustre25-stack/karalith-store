@@ -41,7 +41,7 @@ export function AboutSection() {
           <div className="relative aspect-square lg:aspect-auto lg:h-[600px] rounded-lg overflow-hidden">
             <Image
               src="/images/about-craftsmanship.jpg"
-              alt="Jewelry craftsmanship"
+              alt="Engagement ring craftsmanship"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"

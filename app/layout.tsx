@@ -5,18 +5,20 @@ import { OrganizationJsonLd } from '@/components/seo';
 
 export const metadata: Metadata = {
   title: {
-    default: 'KaraLITH | Sustainable Luxury Jewelry',
+    default: 'KaraLITH | Handcrafted Engagement Rings',
     template: '%s | KaraLITH',
   },
   description:
-    'Discover handcrafted sustainable luxury jewelry. Ethically sourced diamonds and precious metals, crafted with care in Barcelona.',
+    'Handcrafted engagement rings with ethically sourced diamonds. Solitaire, halo, three-stone, and vintage styles crafted with care in Barcelona.',
   keywords: [
-    'luxury jewelry',
-    'sustainable jewelry',
+    'engagement rings',
+    'diamond engagement rings',
     'ethical diamonds',
-    'handmade rings',
-    'gold jewelry',
-    'diamond rings',
+    'handmade engagement rings',
+    'sustainable engagement rings',
+    'solitaire rings',
+    'halo engagement rings',
+    'custom engagement rings',
     'Barcelona jewelry',
   ],
   authors: [{ name: 'KaraLITH' }],
@@ -26,23 +28,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     alternateLocale: 'es_ES',
     siteName: 'KaraLITH',
-    title: 'KaraLITH | Sustainable Luxury Jewelry',
+    title: 'KaraLITH | Handcrafted Engagement Rings',
     description:
-      'Discover handcrafted sustainable luxury jewelry. Ethically sourced diamonds and precious metals.',
+      'Handcrafted engagement rings with ethically sourced diamonds. Find your perfect ring.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'KaraLITH Jewelry',
+        alt: 'KaraLITH Engagement Rings',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KaraLITH | Sustainable Luxury Jewelry',
+    title: 'KaraLITH | Handcrafted Engagement Rings',
     description:
-      'Discover handcrafted sustainable luxury jewelry. Ethically sourced diamonds and precious metals.',
+      'Handcrafted engagement rings with ethically sourced diamonds. Find your perfect ring.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -75,7 +77,7 @@ export default function RootLayout({
           name="KaraLITH"
           url="https://karalith.com"
           logo="https://karalith.com/images/logo.png"
-          description="Sustainable luxury jewelry handcrafted in Barcelona with ethically sourced diamonds and precious metals."
+          description="Handcrafted engagement rings in Barcelona with ethically sourced diamonds. Solitaire, halo, three-stone, and vintage styles."
           address={{
             streetAddress: 'Carrer de Valencia, 123',
             addressLocality: 'Barcelona',

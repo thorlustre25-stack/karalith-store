@@ -90,10 +90,22 @@ export default function CartPage() {
                           : item.product.name}
                       </Link>
                       <p className="text-sm text-muted-foreground mt-1">
-                        {getMetalDisplayName(item.product.metal_type, language)}
+                        {item.selected_metal
+                          ? getMetalDisplayName(item.selected_metal, language)
+                          : getMetalDisplayName(item.product.metal_type, language)}
                         {item.variant?.diamond_grade &&
                           ` · ${item.variant.diamond_grade}`}
                       </p>
+                      {item.stone_shape && (
+                        <p className="text-sm text-muted-foreground">
+                          Shape: {item.stone_shape.charAt(0).toUpperCase() + item.stone_shape.slice(1)}
+                        </p>
+                      )}
+                      {item.diamond_carat && (
+                        <p className="text-sm text-muted-foreground">
+                          Diamond: {item.diamond_carat} ct
+                        </p>
+                      )}
                       {item.ring_size && (
                         <p className="text-sm text-muted-foreground">
                           Size: {item.ring_size}

@@ -119,6 +119,9 @@ export default function CheckoutPage() {
             variant_id: item.variant_id,
             quantity: item.quantity,
             ring_size: item.ring_size,
+            diamond_carat: item.diamond_carat,
+            selected_metal: item.selected_metal,
+            stone_shape: item.stone_shape,
             customization_notes: item.customization_notes,
             product_name: item.product.name,
             unit_price:

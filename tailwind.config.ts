@@ -25,7 +25,7 @@ const config: Config = {
         },
         secondary: {
           DEFAULT: "#DABABA",
-          50: "#fdf8f8",
+          50: "#F7EBEB",
           100: "#f9eded",
           200: "#f3dbdb",
           300: "#DABABA",
@@ -35,6 +35,12 @@ const config: Config = {
           700: "#7c5050",
           800: "#5e3838",
           900: "#402020",
+        },
+        "light-pink": {
+          DEFAULT: "#F7EBEB",
+        },
+        carbon: {
+          DEFAULT: "#616171",
         },
         accent: {
           DEFAULT: "#4495B2",
@@ -75,12 +81,12 @@ const config: Config = {
           800: "#492c30",
           900: "#251618",
         },
-        // UI Colors
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // UI Colors (from brand guidelines)
+        background: "#FAFAFA",
+        foreground: "#616171",
         muted: {
-          DEFAULT: "#f5f5f5",
-          foreground: "#737373",
+          DEFAULT: "#F7EBEB",
+          foreground: "#616171",
         },
         border: "#e5e5e5",
         input: "#e5e5e5",
@@ -100,7 +106,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ['"Antic Didone"', 'Georgia', 'serif'],
-        body: ['"Futura PT"', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
+        body: ['Jost', '"Futura PT"', 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif'],
       },
       fontSize: {
         'display': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

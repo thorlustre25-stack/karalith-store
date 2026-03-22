@@ -1,41 +1,41 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLanguage } from '@/hooks/useLanguage';
+import { Gem, Sparkles, Heart, Crown } from 'lucide-react';
 
-const categories = [
+const ringStyles = [
   {
-    name: 'Rings',
-    nameEs: 'Anillos',
-    slug: 'rings',
-    image: '/images/categories/rings.jpg',
-    description: 'Handcrafted rings',
-    descriptionEs: 'Anillos artesanales',
+    name: 'Solitaire',
+    nameEs: 'Solitario',
+    style: 'solitaire',
+    icon: Gem,
+    description: 'Timeless single diamond elegance',
+    descriptionEs: 'Elegancia atemporal de un solo diamante',
   },
   {
-    name: 'Necklaces',
-    nameEs: 'Collares',
-    slug: 'necklaces',
-    image: '/images/categories/necklaces.jpg',
-    description: 'Elegant necklaces',
-    descriptionEs: 'Collares elegantes',
+    name: 'Halo',
+    nameEs: 'Halo',
+    style: 'halo',
+    icon: Sparkles,
+    description: 'Center stone surrounded by brilliance',
+    descriptionEs: 'Piedra central rodeada de brillo',
   },
   {
-    name: 'Earrings',
-    nameEs: 'Pendientes',
-    slug: 'earrings',
-    image: '/images/categories/earrings.jpg',
-    description: 'Stunning earrings',
-    descriptionEs: 'Pendientes impresionantes',
+    name: 'Three-Stone',
+    nameEs: 'Tres Piedras',
+    style: 'three-stone',
+    icon: Heart,
+    description: 'Past, present, and future',
+    descriptionEs: 'Pasado, presente y futuro',
   },
   {
-    name: 'Bracelets',
-    nameEs: 'Pulseras',
-    slug: 'bracelets',
-    image: '/images/categories/bracelets.jpg',
-    description: 'Beautiful bracelets',
-    descriptionEs: 'Hermosas pulseras',
+    name: 'Vintage',
+    nameEs: 'Vintage',
+    style: 'vintage',
+    icon: Crown,
+    description: 'Inspired by timeless eras',
+    descriptionEs: 'Inspirado en épocas atemporales',
   },
 ];
 
@@ -48,42 +48,46 @@ export function CategoriesSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="section-title">{t('home.categoriesTitle')}</h2>
+          <p className="text-muted-foreground mt-2">
+            {language === 'es'
+              ? 'Descubre el estilo perfecto para tu momento especial'
+              : 'Discover the perfect style for your special moment'}
+          </p>
           <div className="divider mt-4" />
         </div>
 
-        {/* Categories grid */}
+        {/* Ring styles grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/shop/${category.slug}`}
-              className="group relative aspect-square overflow-hidden rounded-lg"
-            >
-              {/* Image */}
-              <div className="absolute inset-0 bg-muted">
-                <Image
-                  src={category.image}
-                  alt={language === 'es' ? category.nameEs : category.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(min-width: 768px) 25vw, 50vw"
-                />
-              </div>
+          {ringStyles.map((style) => {
+            const Icon = style.icon;
+            return (
+              <Link
+                key={style.style}
+                href={`/shop?style=${style.style}`}
+                className="group relative bg-white rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 hover:border-primary/30"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Icon className="h-8 w-8 text-primary" />
+                </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center text-white">
-                <h3 className="font-heading text-xl md:text-2xl mb-1">
-                  {language === 'es' ? category.nameEs : category.name}
+                {/* Content */}
+                <h3 className="font-heading text-xl mb-2 text-primary">
+                  {language === 'es' ? style.nameEs : style.name}
                 </h3>
-                <p className="text-sm text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {language === 'es' ? category.descriptionEs : category.description}
+                <p className="text-sm text-muted-foreground">
+                  {language === 'es' ? style.descriptionEs : style.description}
                 </p>
-              </div>
-            </Link>
-          ))}
+
+                {/* Hover arrow */}
+                <div className="mt-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-sm font-medium">
+                    {language === 'es' ? 'Explorar' : 'Explore'} →
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

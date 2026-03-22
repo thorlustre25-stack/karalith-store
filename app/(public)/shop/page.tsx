@@ -6,9 +6,9 @@ import type { Metadata } from 'next';
 import type { ProductWithDetails, Category, MetalType, ProductSort } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'Shop All Jewelry',
+  title: 'Engagement Rings | Handcrafted with Ethically Sourced Diamonds',
   description:
-    'Explore our collection of handcrafted luxury jewelry. Rings, necklaces, earrings, and bracelets made with ethically sourced diamonds.',
+    'Discover our collection of handcrafted engagement rings. Solitaire, halo, three-stone, and vintage styles with ethically sourced diamonds.',
 };
 
 interface ShopPageProps {
@@ -26,14 +26,19 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
   const params = await searchParams;
 
   return (
-    <div className="container-custom py-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-h1 mb-2">Shop All Jewelry</h1>
-        <p className="text-muted-foreground">
-          Discover our collection of handcrafted sustainable luxury jewelry
-        </p>
+    <div>
+      {/* Header Banner */}
+      <div className="bg-primary text-white py-16 mb-10">
+        <div className="container-custom text-center">
+          <h1 className="font-heading text-h1 text-white mb-3">Engagement Rings</h1>
+          <div className="w-12 h-0.5 bg-gold mx-auto mb-4" />
+          <p className="text-white/80 text-lg max-w-xl mx-auto">
+            Handcrafted rings with ethically sourced diamonds for your perfect moment
+          </p>
+        </div>
       </div>
+
+      <div className="container-custom pb-12">
 
       <Suspense
         fallback={
@@ -51,6 +56,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
       >
         <ShopContentWrapper searchParams={params} />
       </Suspense>
+      </div>
     </div>
   );
 }

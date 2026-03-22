@@ -157,9 +157,19 @@ function CartItemCard({ item, language, onUpdateQuantity, onRemove }: CartItemCa
             : item.product.name}
         </h3>
         <p className="text-xs text-muted-foreground mt-0.5">
-          {getMetalDisplayName(item.product.metal_type, language)}
+          {item.selected_metal
+            ? getMetalDisplayName(item.selected_metal, language)
+            : getMetalDisplayName(item.product.metal_type, language)}
           {item.variant?.diamond_grade && ` · ${item.variant.diamond_grade}`}
         </p>
+        {item.stone_shape && (
+          <p className="text-xs text-muted-foreground">
+            Shape: {item.stone_shape.charAt(0).toUpperCase() + item.stone_shape.slice(1)}
+          </p>
+        )}
+        {item.diamond_carat && (
+          <p className="text-xs text-muted-foreground">Diamond: {item.diamond_carat} ct</p>
+        )}
         {item.ring_size && (
           <p className="text-xs text-muted-foreground">Size: {item.ring_size}</p>
         )}

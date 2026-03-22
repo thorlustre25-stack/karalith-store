@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-jewelry.jpg"
-          alt="Luxury jewelry on elegant background"
+          alt="Luxury engagement ring with diamond"
           fill
           priority
           className="object-cover"

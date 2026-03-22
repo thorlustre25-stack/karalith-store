@@ -190,6 +190,9 @@ export interface CartItem {
   variant_id: string | null;
   quantity: number;
   ring_size: string | null;
+  diamond_carat: string | null;
+  selected_metal: string | null;
+  stone_shape: string | null;
   customization_notes: string | null;
   // Denormalized for display
   product: Product;

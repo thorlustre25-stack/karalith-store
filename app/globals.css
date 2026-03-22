@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Jost:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+  --background: #FAFAFA;
+  --foreground: #616171;
   --primary: #254849;
   --secondary: #DABABA;
+  --light-pink: #F7EBEB;
   --accent: #4495B2;
   --gold: #D4AF37;
   --rose-gold: #B76E79;
