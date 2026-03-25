@@ -92,10 +92,10 @@ export default function ComingSoonPage() {
         {/* Contact */}
         <div className="flex flex-col items-center gap-6">
           <a
-            href="mailto:thor.karalith@gmail.com"
+            href="mailto:hello@karalith.com"
             className="text-gold hover:text-gold-300 transition-colors text-sm tracking-widest uppercase"
           >
-            thor.karalith@gmail.com
+            hello@karalith.com
           </a>
 
           <div className="flex items-center gap-4">
