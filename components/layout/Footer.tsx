@@ -56,11 +56,11 @@ export function Footer() {
             {/* Contact info */}
             <div className="mt-8 space-y-3">
               <a
-                href="mailto:hello@karalith.com"
+                href="mailto:thor.karalith@gmail.com"
                 className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                hello@karalith.com
+                thor.karalith@gmail.com
               </a>
               <a
                 href="tel:+34612345678"

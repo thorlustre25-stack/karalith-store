@@ -79,10 +79,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-medium mb-1">Email</h3>
                   <a
-                    href="mailto:hello@karalith.com"
+                    href="mailto:thor.karalith@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@karalith.com
+                    thor.karalith@gmail.com
                   </a>
                 </div>
               </div>

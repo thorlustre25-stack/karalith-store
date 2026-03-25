@@ -82,7 +82,7 @@ export default function RootLayout({
           }}
           contactPoint={{
             telephone: '+34-123-456-789',
-            email: 'hello@karalith.com',
+            email: 'thor.karalith@gmail.com',
           }}
         />
       </head>
