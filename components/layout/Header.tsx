@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
@@ -20,10 +21,8 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { CartDrawer } from '@/components/cart/cart-drawer';
 
 const navigation = [
-  { name: 'Shop', nameEs: 'Tienda', href: '/shop' },
-  { name: 'Rings', nameEs: 'Anillos', href: '/shop/rings' },
-  { name: 'Necklaces', nameEs: 'Collares', href: '/shop/necklaces' },
-  { name: 'Earrings', nameEs: 'Pendientes', href: '/shop/earrings' },
+  { name: 'Engagement Rings', nameEs: 'Anillos de Compromiso', href: '/shop' },
+  { name: 'Ring Size Guide', nameEs: 'Guía de Tallas', href: '/ring-size-guide' },
   { name: 'About', nameEs: 'Nosotros', href: '/about' },
   { name: 'Contact', nameEs: 'Contacto', href: '/contact' },
 ];
@@ -90,9 +89,14 @@ export function Header() {
               href="/"
               className="flex items-center"
             >
-              <span className="font-heading text-2xl md:text-3xl text-primary tracking-wide">
-                KaraLITH
-              </span>
+              <Image
+                src="/images/logo/logo.svg"
+                alt="KaraLITH"
+                width={130}
+                height={85}
+                className="h-12 md:h-16 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop navigation */}
@@ -177,9 +181,13 @@ export function Header() {
           />
           <div className="absolute left-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-xl animate-slide-in-right">
             <div className="flex items-center justify-between p-4 border-b">
-              <span className="font-heading text-xl text-primary">
-                KaraLITH
-              </span>
+              <Image
+                src="/images/logo/logo.svg"
+                alt="KaraLITH"
+                width={100}
+                height={66}
+                className="h-10 w-auto"
+              />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 -mr-2"
@@ -291,7 +299,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search for jewelry..."
+              placeholder="Search engagement rings..."
               className="flex-1 py-3 text-lg outline-none placeholder:text-muted-foreground"
             />
             <button

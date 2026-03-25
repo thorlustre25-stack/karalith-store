@@ -1,28 +1,29 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 
 const footerLinks = {
   shop: [
-    { name: 'All Jewelry', nameEs: 'Todas las Joyas', href: '/shop' },
-    { name: 'Rings', nameEs: 'Anillos', href: '/shop/rings' },
-    { name: 'Necklaces', nameEs: 'Collares', href: '/shop/necklaces' },
-    { name: 'Earrings', nameEs: 'Pendientes', href: '/shop/earrings' },
-    { name: 'Bracelets', nameEs: 'Pulseras', href: '/shop/bracelets' },
+    { name: 'All Engagement Rings', nameEs: 'Todos los Anillos', href: '/shop' },
+    { name: 'Solitaire Rings', nameEs: 'Anillos Solitario', href: '/shop?style=solitaire' },
+    { name: 'Halo Rings', nameEs: 'Anillos Halo', href: '/shop?style=halo' },
+    { name: 'Three-Stone Rings', nameEs: 'Anillos Tres Piedras', href: '/shop?style=three-stone' },
+    { name: 'Vintage Rings', nameEs: 'Anillos Vintage', href: '/shop?style=vintage' },
   ],
   support: [
     { name: 'Ring Size Guide', nameEs: 'Guía de Tallas', href: '/ring-size-guide' },
     { name: 'FAQ', nameEs: 'Preguntas Frecuentes', href: '/faq' },
     { name: 'Shipping & Returns', nameEs: 'Envíos y Devoluciones', href: '/shipping' },
     { name: 'Contact Us', nameEs: 'Contáctanos', href: '/contact' },
-    { name: 'Custom Orders', nameEs: 'Pedidos Personalizados', href: '/contact' },
+    { name: 'Custom Rings', nameEs: 'Anillos Personalizados', href: '/contact' },
   ],
   company: [
     { name: 'About KaraLITH', nameEs: 'Sobre KaraLITH', href: '/about' },
-    { name: 'Sustainability', nameEs: 'Sostenibilidad', href: '/about#sustainability' },
-    { name: 'Our Craftsmanship', nameEs: 'Nuestra Artesanía', href: '/about#craftsmanship' },
+    { name: 'Our Diamonds', nameEs: 'Nuestros Diamantes', href: '/about#diamonds' },
+    { name: 'Craftsmanship', nameEs: 'Artesanía', href: '/about#craftsmanship' },
     { name: 'Privacy Policy', nameEs: 'Política de Privacidad', href: '/privacy' },
     { name: 'Terms & Conditions', nameEs: 'Términos y Condiciones', href: '/terms' },
   ],
@@ -40,9 +41,13 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block">
-              <span className="font-heading text-3xl tracking-wide">
-                KaraLITH
-              </span>
+              <Image
+                src="/images/logo/logo-white.svg"
+                alt="KaraLITH"
+                width={150}
+                height={98}
+                className="h-16 w-auto"
+              />
             </Link>
             <p className="mt-4 text-white/70 max-w-sm leading-relaxed">
               {t('footer.tagline')}

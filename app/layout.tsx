@@ -59,8 +59,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/images/logo/icon.png',
+    apple: '/images/logo/icon.png',
   },
   manifest: '/site.webmanifest',
 };
