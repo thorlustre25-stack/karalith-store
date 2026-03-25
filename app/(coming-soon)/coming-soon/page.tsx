@@ -3,9 +3,48 @@ import { Instagram } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'KaraLITH | Coming Soon',
+  title: 'KaraLITH | Handcrafted Engagement Rings — Coming Soon',
   description:
     'KaraLITH — Handcrafted engagement rings with ethically sourced diamonds. Launching soon from Barcelona.',
+  keywords: [
+    'engagement rings',
+    'handcrafted engagement rings',
+    'ethical diamonds',
+    'Barcelona jewelry',
+    'custom engagement rings',
+    'KaraLITH',
+  ],
+  openGraph: {
+    title: 'KaraLITH | Handcrafted Engagement Rings — Coming Soon',
+    description:
+      'Handcrafted engagement rings with ethically sourced diamonds, designed with love in Barcelona. Launching soon.',
+    url: 'https://karalith.com',
+    siteName: 'KaraLITH',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/images/logo/logo.png',
+        width: 330,
+        height: 215,
+        alt: 'KaraLITH — Handcrafted Engagement Rings',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'KaraLITH | Handcrafted Engagement Rings — Coming Soon',
+    description:
+      'Handcrafted engagement rings with ethically sourced diamonds. Launching soon from Barcelona.',
+    images: ['/images/logo/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://karalith.com',
+  },
 };
 
 export default function ComingSoonPage() {
